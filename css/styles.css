@@ -1,0 +1,272 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --bg-color: #272727;
+    --text-color: white;
+    --bg-color2: #202020;
+    --accent: rgb(238, 49, 15);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1.5px, transparent 1.5px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1.5px, transparent 1.5px),
+        linear-gradient(rgba(255, 255, 255, 0.027) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.027) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+button:hover {
+    background-color: var(--accent);
+    transition-duration: 0.3s;
+    color: var(--text-color);
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+}
+
+.find-pris-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    transition-duration: 0.3s;
+}
+
+.find-pris {
+    display: flex;
+    background-color: var(--bg-color2);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1.5rem;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    transition-duration: 0.3s;
+}
+
+.find-pris h1 {
+    font-size: 2.3rem;
+    margin-bottom: 1rem;
+}
+
+.find-pris h4 {
+    margin: 0.4rem 0;
+}
+
+.find-pris-stepper-wrapper {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.find-pris-stepper-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.find-pris-stepper-item::before {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: -50%;
+    z-index: 2;
+}
+
+.find-pris-stepper-item::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 2;
+}
+
+.find-pris-stepper-item .find-pris-step-counter {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #838383;
+    margin-bottom: 0.7rem;
+}
+
+.find-pris-stepper-item.active {
+    font-weight: normal;
+    color: #ccc;
+}
+
+.find-pris-stepper-item.completed {
+    font-weight: bold;
+}
+
+.find-pris-stepper-item.completed .find-pris-step-counter {
+    background-color: var(--accent);
+}
+
+.find-pris-stepper-item.completed::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid var(--accent);
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 3;
+}
+
+.find-pris-stepper-item:first-child::before {
+    content: none;
+}
+
+.find-pris-stepper-item:last-child::after {
+    content: none;
+}
+
+.find-pris-content {
+    padding: 0.5rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    transition-duration: 0.3s;
+}
+
+.find-pris-kategorier {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 38rem;
+    height: 30rem;
+    margin: 1rem;
+    padding: 2rem;
+    background-color: var(--bg-color);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.info-icon {
+    position: relative;
+    width: 0.8rem;
+    bottom: 4.3rem;
+    left: 4.3rem
+}
+
+.find-pris-kategorier ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: hidden;
+    width: 100%;
+    height: 100%;
+    margin-top: 1rem;
+}
+
+.find-pris-kategorier li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    margin: 1rem;
+    padding: 1.5rem;
+    width: 7rem;
+    height: 4rem;
+    transition-duration: 0.3s;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.find-pris-kategorier li:hover {
+    transition-duration: 0.3s;
+    background-color: var(--accent);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.find-pris-kategorier li.selected {
+    transition-duration: 0.3s;
+    background-color: var(--accent);
+    color: var(--text-color);
+}
+
+.find-pris-kategorier li h4 {
+    margin-top: 1.3rem;
+}
+
+.find-pris-kategorier li p {
+    display: none;
+}
+
+.find-pris-est-pris-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    max-width: 30rem;
+}
+
+.find-pris-est-pris-info {
+    margin: 0 1rem 1rem 0;
+    padding: 0 3rem;
+    font-size: 1rem;
+}
+
+.find-pris-est-pris {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 20rem;
+    background-color: var(--bg-color);
+    margin: 1rem;
+    padding: 2rem;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.find-pris-est-pris p {
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+.find-pris-est-pris-button {
+    background-color: white;
+    border: none;
+    padding: 1rem;
+    width: 80%;
+    font-size: 1.5rem;
+    margin: 1.5rem 0 0 0;
+}
